@@ -1,17 +1,9 @@
-
-def divisible_by_range(x,a,b)
-  divisible = true
-  for i in a..b do
-    divisible = false if not x%i==0
-  end
-  return divisible
+def gcd(a,b)
+  b == 0 ? a : gcd(b,a%b)
 end
 
-index = 1
-until divisible_by_range(index,1,10) do
-  index += 1
+def lcm(a,b)
+  (a/gcd(a,b))*b
 end
-puts index
 
-
-# Need another algorithm to run 1..20
+puts (1..20).inject { |a,b| lcm(a,b)}
